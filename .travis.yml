@@ -16,7 +16,7 @@ after_success:
   - docker build -t saezbaldo/multi-worker ./worker
 
   # Login to docker CLI
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --pasword-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
   - docker push saezbaldo/multi-client
   - docker push saezbaldo/multi-server
