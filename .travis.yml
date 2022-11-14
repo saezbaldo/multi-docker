@@ -22,3 +22,15 @@ after_success:
   - docker push saezbaldo/multi-server
   - docker push saezbaldo/multi-nginx
   - docker push saezbaldo/multi-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: 'us-east-1'
+  app: 'docker-multi'
+  env: 'dockermulti-env'
+  bucket_name: 'elasticbeanstalk-us-east-1-493320227173'
+  bucket_path: 'docker-multi'
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
